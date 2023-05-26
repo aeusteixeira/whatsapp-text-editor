@@ -74,14 +74,21 @@ function updatePreview() {
     var inputText = document.getElementById("inputText");
     var previewText = document.getElementById("previewText");
     var formattedText = inputText.value
-        .replace(/\*([^\*]+)\*/g, "<b>$1</b>")
-        .replace(/\_([^\_]+)\_/g, "<i>$1</i>")
-        .replace(/\~([^\~]+)\~/g, "<strike>$1</strike>")
-        .replace(/\n\-\s/g, "<br>- ")
-        .replace(/\n\d+\.\s/g, "<br>1. ");
-
+      .replace(/\*([^\*]+)\*/g, "<b>$1</b>")
+      .replace(/\_([^\_]+)\_/g, "<i>$1</i>")
+      .replace(/\~([^\~]+)\~/g, "<strike>$1</strike>")
+      .replace(/\`([^`]+)\`/g, "<code>$1</code>")
+      .replace(/\n\-\s/g, "<br>- ")
+      .replace(/\n\d+\.\s/g, "<br>1. ")
+      .replace(/(``)/g, "`")
+      .replace(/<code>(.*?)<\/code>/g, function(match, p1) {
+        return "<code>" + p1.replace(/<\/?code>/g, "") + "</code>";
+      });
+  
     previewText.innerHTML = formattedText;
-}
+  }
+  
+  
 
 // Função para copiar o texto e confirmar a cópia!
 function copyText() {
