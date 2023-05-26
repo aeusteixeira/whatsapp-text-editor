@@ -30,6 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQ6JDBKRL7"></script>
@@ -49,19 +50,24 @@
         <h1>Editor de Texto para WhatsApp</h1>
         <div class="options">
             <button onclick="addFormatting('*')">
+                <i class="fas fa-bold"></i>
                 <b>Negrito</b>
             </button>
             <button onclick="addFormatting('_')">
+                <i class="fas fa-italic"></i>
                 <i>Itálico</i>
             </button>
             <button onclick="addFormatting('~')">
+                <i class="fas fa-strikethrough"></i>
                 <s>Riscado</s>
             </button>
             <button onclick="addList('ul')">
-                - Lista não ordenada
+                <i class="fas fa-list-ul"></i>
+                Lista não ordenada
             </button>
             <button onclick="addList('ol')">
-                1. Lista ordenada
+                <i class="fas fa-list-ol"></i>
+                Lista ordenada
             </button>
         </div>
         <div class="help-text">
@@ -84,11 +90,23 @@
 
         <textarea id="inputText" placeholder="Digite seu texto aqui" oninput="updatePreview()"></textarea>
         
-        <button onclick="copyText()" title="Copiar para a área de transferência">Copiar</button>
-        <button onclick="openEmojiModal()" title="Adicionar emojis">Adicionar Emojis</button>
+        <button onclick="copyText()" title="Copiar para a área de transferência">
+            <i class="fas fa-copy"></i>
+            Copiar
+        </button>
+        <button onclick="openEmojiModal()" title="Adicionar emojis">
+            <i class="fas fa-smile"></i>
+            Emojis
+        </button>
 
-        <button onclick="eraseText()" title="Apagar texto">Apagar texto</button>
-        <button onclick="clearFormatting()">Limpar Formatação</button>
+        <button onclick="eraseText()" title="Apagar texto">
+            <i class="fas fa-eraser"></i>
+            Apagar texto
+        </button>
+        <button onclick="clearFormatting()">
+            <i class="fas fa-eraser"></i>
+            Limpar formatação
+        </button>
 
 
         <div class="preview">
