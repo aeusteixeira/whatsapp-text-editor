@@ -108,6 +108,17 @@ function eraseText () {
     previewText.innerHTML = null;
 }
 
+// Função para limpar formatação do texto
+function clearFormatting() {
+    var inputText = document.getElementById("inputText");
+    var unformattedText = inputText.value.replace(/\*|_|~/g, "");
+  
+    inputText.value = unformattedText;
+  
+    updatePreview();
+  }
+  
+
 // Função para selecionar um modelo de mensagem
 function selectModel() {
     var modelSelector = document.getElementById("modelSelector");
