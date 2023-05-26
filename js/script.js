@@ -77,16 +77,14 @@ function updatePreview() {
       .replace(/\*([^\*]+)\*/g, "<b>$1</b>")
       .replace(/\_([^\_]+)\_/g, "<i>$1</i>")
       .replace(/\~([^\~]+)\~/g, "<strike>$1</strike>")
-      .replace(/\`([^`]+)\`/g, "<code>$1</code>")
+      .replace(/\`([^`]+)\`(?![^<]*<\/code>)/g, "<code>$1</code>")
       .replace(/\n\-\s/g, "<br>- ")
       .replace(/\n\d+\.\s/g, "<br>1. ")
-      .replace(/(``)/g, "`")
-      .replace(/<code>(.*?)<\/code>/g, function(match, p1) {
-        return "<code>" + p1.replace(/<\/?code>/g, "") + "</code>";
-      });
+      .replace(/`/g, "");
   
     previewText.innerHTML = formattedText;
   }
+  
   
   
 
