@@ -83,11 +83,29 @@ function updatePreview() {
     previewText.innerHTML = formattedText;
 }
 
-// Função para copiar o texto
+// Função para copiar o texto e confirmar a cópia!
 function copyText() {
     var inputText = document.getElementById("inputText");
     inputText.select();
-    document.execCommand('copy');
+    inputText.setSelectionRange(0, 99999)
+    //document.execCommand('copy');
+
+    if(inputText.value === null  || inputText.value === '') {
+        alert('Sem mensagem para cópia!')
+    } else {
+        navigator.clipboard.writeText(inputText.value)
+        confirm(`A mensagem: ${inputText.value} foi copiada com sucesso!`)
+    }
+    eraseText();
+}
+
+// Função para apagar a mensagem selecionada
+function eraseText () {
+    var inputText = document.getElementById("inputText");
+    var previewText = document.getElementById("previewText");
+    
+    inputText.value = '';
+    previewText.innerHTML = null;
 }
 
 // Função para selecionar um modelo de mensagem

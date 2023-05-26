@@ -55,7 +55,7 @@
                 <i>Itálico</i>
             </button>
             <button onclick="addFormatting('~')">
-                <strike>Riscado</strike>
+                <s>Riscado</s>
             </button>
             <button onclick="addList('ul')">
                 - Lista não ordenada
@@ -83,9 +83,11 @@
         </div>
 
         <textarea id="inputText" placeholder="Digite seu texto aqui" oninput="updatePreview()"></textarea>
+        
         <button onclick="copyText()" title="Copiar para a área de transferência">Copiar</button>
-
         <button onclick="openEmojiModal()" title="Adicionar emojis">Adicionar Emojis</button>
+
+        <button onclick="eraseText()" title="Apagar texto">Apagar texto</button>
 
         <div class="preview">
             <h3>Visualização:</h3>
