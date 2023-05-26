@@ -79,6 +79,7 @@ button:hover {
 }
 
 /* Estilos para o modal */
+/* Estilos para o modal */
 .modal {
     display: none;
     position: fixed;
@@ -89,31 +90,62 @@ button:hover {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
+  }
+  
+  .modal-content {
     background-color: #fefefe;
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     max-width: 400px;
-}
-
-.close {
+  }
+  
+  .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
+  }
+  
+  .close:hover,
+  .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-}
+  }
+  
+  /* Estilos para o input de pesquisa */
+  #emojiSearch {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para a lista de emojis */
+  .emoji-container {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .emoji-container button {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+  
+  .emoji-container button:hover {
+    background-color: #f2f2f2;
+  }
+  
 
 @media (min-width: 320px) and (max-width: 540px) {
     .options {

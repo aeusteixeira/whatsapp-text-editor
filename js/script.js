@@ -83,10 +83,7 @@ function updatePreview() {
       .replace(/`/g, "");
   
     previewText.innerHTML = formattedText;
-  }
-  
-  
-  
+  }  
 
 // Função para copiar o texto e confirmar a cópia!
 function copyText() {
@@ -150,3 +147,48 @@ function selectModel() {
 
     updatePreview();
 }
+
+// Função para buscar emojis da API e exibi-los no modal
+function fetchEmojis() {
+    fetch('https://emoji-api.com/emojis?access_key=afbf73a432f34028d70288c21768f4195cd6e0b9')
+      .then(response => response.json())
+      .then(data => {
+        var emojiContainer = document.getElementById('emojiContainer');
+        var emojiSearchInput = document.getElementById('emojiSearch');
+  
+        emojiSearchInput.addEventListener('input', function() {
+          var searchQuery = emojiSearchInput.value.toLowerCase();
+  
+          var filteredEmojis = data.filter(emoji => {
+            return emoji.unicodeName.toLowerCase().includes(searchQuery);
+          });
+  
+          renderEmojis(filteredEmojis);
+        });
+  
+        renderEmojis(data);
+      })
+      .catch(error => {
+        console.error('Erro ao buscar emojis:', error);
+      });
+  }
+  
+  function renderEmojis(emojis) {
+    var emojiContainer = document.getElementById('emojiContainer');
+    emojiContainer.innerHTML = '';
+  
+    emojis.forEach(emoji => {
+      var button = document.createElement('button');
+      button.textContent = emoji.character;
+      button.onclick = function() {
+        insertEmoji(emoji.character);
+        closeEmojiModal();
+      };
+  
+      emojiContainer.appendChild(button);
+    });
+  }
+  
+  
+// Chame a função fetchEmojis para buscar e exibir os emojis no modal
+fetchEmojis();

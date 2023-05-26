@@ -2,139 +2,135 @@
 <html>
 
 <head>
-    <!-- Meta Tags Primárias -->
-    <title>Editor de Texto para WhatsApp</title>
-    <meta name="title" content="Editor de Texto para WhatsApp">
-    <meta name="description"
-        content="Esta é uma ferramenta de edição de texto para criar mensagens formatadas para o WhatsApp.">
-    <meta name="keywords" content="Editor de Texto, WhatsApp, Mensagens, Formatação">
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aeusteixeira.github.io/whatsapp-text-editor/">
-    <meta property="og:title" content="Editor de Texto para WhatsApp">
-    <meta property="og:description"
-        content="Esta é uma ferramenta de edição de texto para criar mensagens formatadas para o WhatsApp.">
-    <meta property="og:image"
-        content="img/editor-de-texto-para-whatsapp-matheus-teixeira.jpg">
+<!-- Meta Tags Primárias -->
+<title>Editor de Texto para WhatsApp</title>
+<meta name="title" content="Editor de Texto para WhatsApp">
+<meta name="description"
+    content="Esta é uma ferramenta de edição de texto para criar mensagens formatadas para o WhatsApp.">
+<meta name="keywords" content="Editor de Texto, WhatsApp, Mensagens, Formatação">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aeusteixeira.github.io/whatsapp-text-editor/">
+<meta property="og:title" content="Editor de Texto para WhatsApp">
+<meta property="og:description"
+    content="Esta é uma ferramenta de edição de texto para criar mensagens formatadas para o WhatsApp.">
+<meta property="og:image" content="img/editor-de-texto-para-whatsapp-matheus-teixeira.jpg">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://aeusteixeira.github.io/whatsapp-text-editor/">
-    <meta property="twitter:title" content="Editor de Texto para WhatsApp">
-    <meta property="twitter:description"
-        content="Esta é uma ferramenta de edição de texto para criar mensagens formatadas para o WhatsApp.">
-    <meta property="twitter:image"
-        content="img/editor-de-texto-para-whatsapp-matheus-teixeira.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://aeusteixeira.github.io/whatsapp-text-editor/">
+<meta property="twitter:title" content="Editor de Texto para WhatsApp">
+<meta property="twitter:description"
+    content="Esta é uma ferramenta de edição de texto para criar mensagens formatadas para o WhatsApp.">
+<meta property="twitter:image" content="img/editor-de-texto-para-whatsapp-matheus-teixeira.jpg">
 
-    <meta name="author" content="Matheus Teixeira">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta name="author" content="Matheus Teixeira">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="img/favicon.ico">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQ6JDBKRL7"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
+window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
 
-    gtag('config', 'G-SQ6JDBKRL7');
+gtag('config', 'G-SQ6JDBKRL7');
 </script>
 
 <body>
-    <div class="container">
-        <h1>Editor de Texto para WhatsApp</h1>
-        <div class="options">
-            <button onclick="addFormatting('*')">
-                <i class="fas fa-bold"></i>
-                Negrito
-            </button>
-            <button onclick="addFormatting('_')">
-                <i class="fas fa-italic"></i>
-                Itálico
-            </button>
-            <button onclick="addFormatting('~')">
-                <i class="fas fa-strikethrough"></i>
-                Riscado
-            </button>
-            <button onclick="addFormatting('```')">
-                <i class="fa-solid fa-text-width"></i>
-                Monoespaçado
-            </button>
-            <button onclick="addList('ul')">
-                <i class="fas fa-list-ul"></i>
-                Lista não ordenada
-            </button>
-            <button onclick="addList('ol')">
-                <i class="fas fa-list-ol"></i>
-                Lista ordenada
-            </button>
-        </div>
-        <div class="help-text">
-            <p>Para formatar o texto, selecione a parte desejada e clique nos botões acima.</p>
-            <p>Para criar uma lista, coloque cada item em uma nova linha e clique no botão correspondente.</p>
-        </div>
-
-        <div class="model-options">
-            <select id="modelSelector" onchange="selectModel()">
-                <option value="">Selecione um modelo</option>
-                <option value="Boas-vindas">Boas-vindas</option>
-                <option value="Ola">Olá</option>
-                <option value="Agradecimento">Agradecimento</option>
-                <option value="ConfirmacaoPedido">Confirmação de Pedido</option>
-                <option value="Promocao">Promoção</option>
-                <option value="Lembrete">Lembrete</option>
-                <option value="Despedida">Despedida</option>
-            </select>
-        </div>
-
-        <textarea id="inputText" placeholder="Digite seu texto aqui" oninput="updatePreview()"></textarea>
-        
-        <button onclick="copyText()" title="Copiar para a área de transferência">
-            <i class="fas fa-copy"></i>
-            Copiar
+<div class="container">
+    <h1>Editor de Texto para WhatsApp</h1>
+    <div class="options">
+        <button onclick="addFormatting('*')">
+            <i class="fas fa-bold"></i>
+            Negrito
         </button>
-        <button onclick="openEmojiModal()" title="Adicionar emojis">
-            <i class="fas fa-smile"></i>
-            Emojis
+        <button onclick="addFormatting('_')">
+            <i class="fas fa-italic"></i>
+            Itálico
         </button>
-
-        <button onclick="eraseText()" title="Apagar texto">
-            <i class="fas fa-eraser"></i>
-            Apagar texto
+        <button onclick="addFormatting('~')">
+            <i class="fas fa-strikethrough"></i>
+            Riscado
         </button>
-        <button onclick="clearFormatting()">
-            <i class="fas fa-eraser"></i>
-            Limpar formatação
+        <button onclick="addFormatting('```')">
+            <i class="fa-solid fa-text-width"></i>
+            Monoespaçado
         </button>
-
-
-        <div class="preview">
-            <h3>Visualização:</h3>
-            <p id="previewText"></p>
-        </div>
+        <button onclick="addList('ul')">
+            <i class="fas fa-list-ul"></i>
+            Lista não ordenada
+        </button>
+        <button onclick="addList('ol')">
+            <i class="fas fa-list-ol"></i>
+            Lista ordenada
+        </button>
+    </div>
+    <div class="help-text">
+        <p>Para formatar o texto, selecione a parte desejada e clique nos botões acima.</p>
+        <p>Para criar uma lista, coloque cada item em uma nova linha e clique no botão correspondente.</p>
     </div>
 
-    <!-- Modal para seleção de emojis -->
-    <div id="emojiModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeEmojiModal()">&times;</span>
-            <h2>Selecione um emoji:</h2>
-            <div>
-                <button onclick="insertEmoji('😃')">😃</button>
-                <button onclick="insertEmoji('👍')">👍</button>
-                <button onclick="insertEmoji('👎')">👎</button>
-                <button onclick="insertEmoji('❤️')">❤️</button>
-                <button onclick="insertEmoji('🎉')">🎉</button>
-                <button onclick="insertEmoji('👋')">👋</button>
-            </div>
-        </div>
+    <div class="model-options">
+        <select id="modelSelector" onchange="selectModel()">
+            <option value="">Selecione um modelo</option>
+            <option value="Boas-vindas">Boas-vindas</option>
+            <option value="Ola">Olá</option>
+            <option value="Agradecimento">Agradecimento</option>
+            <option value="ConfirmacaoPedido">Confirmação de Pedido</option>
+            <option value="Promocao">Promoção</option>
+            <option value="Lembrete">Lembrete</option>
+            <option value="Despedida">Despedida</option>
+        </select>
     </div>
-    <script src="js/script.js"></script>
+
+    <textarea id="inputText" placeholder="Digite seu texto aqui" oninput="updatePreview()"></textarea>
+
+    <button onclick="copyText()" title="Copiar para a área de transferência">
+        <i class="fas fa-copy"></i>
+        Copiar
+    </button>
+    <button onclick="openEmojiModal()" title="Adicionar emojis">
+        <i class="fas fa-smile"></i>
+        Emojis
+    </button>
+
+    <button onclick="eraseText()" title="Apagar texto">
+        <i class="fas fa-eraser"></i>
+        Apagar texto
+    </button>
+    <button onclick="clearFormatting()">
+        <i class="fas fa-eraser"></i>
+        Limpar formatação
+    </button>
+
+
+    <div class="preview">
+        <h3>Visualização:</h3>
+        <p id="previewText"></p>
+    </div>
+</div>
+
+<!-- Modal para seleção de emojis -->
+<div id="emojiModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEmojiModal()">&times;</span>
+        <h2>Selecione um emoji:</h2>
+        <input type="text" id="emojiSearch" placeholder="Pesquisar emoji...">
+        <div id="emojiContainer" class="emoji-container"></div>
+    </div>
+</div>
+
+
+<script src="js/script.js"></script>
 </body>
 
 </html>
