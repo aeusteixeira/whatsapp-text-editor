@@ -168,8 +168,9 @@
         </div>
 
         <textarea id="inputText" placeholder="Digite seu texto aqui" oninput="updatePreview()"></textarea>
-        <button onclick="copyText()">Copiar</button>
-        <button onclick="openEmojiModal()">Inserir Emoji</button>
+        <button onclick="copyText()" title="Copiar para a área de transferência">Copiar</button>
+
+        <button onclick="openEmojiModal()" title="Adicionar emojis">Adicionar Emojis</button>
 
         <div class="preview">
             <h3>Visualização:</h3>
