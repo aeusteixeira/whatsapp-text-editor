@@ -27,6 +27,11 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 4px;
+    transition: .2s;
+}
+
+button:hover {
+    background-color: #45a049;
 }
 
 .options {
