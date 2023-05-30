@@ -42,32 +42,42 @@ function loadModels() {
 
     // Cria o texto do modelo
     var modelText = document.createElement("p");
-    modelText.textContent = model;
+    modelText.innerHTML = formatModelText(model); // Aplica a formatação ao texto
     modelCard.appendChild(modelText);
 
     // Cria o botão de exclusão
     var deleteButton = document.createElement("button");
     deleteButton.className = "button delete-button";
-
     deleteButton.textContent = "Excluir";
-    deleteButton.addEventListener("click", function (event) {
-      deleteModel(event.target.parentNode);
-    });
-
+    deleteButton.addEventListener("click", deleteModel.bind(null, modelCard));
     modelCard.appendChild(deleteButton);
 
     // Cria o botão de cópia
     var copyButton = document.createElement("button");
     copyButton.className = "button copy-button";
     copyButton.textContent = "Copiar";
-    copyButton.addEventListener("click", function (event) {
-      copyModelText(event.target.previousSibling.textContent);
-    });
+    copyButton.addEventListener("click", copyModelText.bind(null, modelText.innerText));
     modelCard.appendChild(copyButton);
 
     modelList.appendChild(modelCard);
   }
 }
+
+// Função para formatar o texto do modelo
+function formatModelText(text) {
+  var formattedText = text
+    .replace(/\*([^\*]+)\*/g, "<b>$1</b>")
+    .replace(/\_([^\_]+)\_/g, "<i>$1</i>")
+    .replace(/\~([^\~]+)\~/g, "<strike>$1</strike>")
+    .replace(/\`([^`]+)\`(?![^<]*<\/code>)/g, "<code>$1</code>")
+    .replace(/\n\-\s/g, "<br>- ")
+    .replace(/\n\d+\.\s/g, "<br>1. ")
+    .replace(/`/g, "")
+    .replace(/\n/g, "<br>");
+
+  return formattedText;
+}
+
 
 function deleteModel(card) {
   var modelList = document.getElementById("modelList");
