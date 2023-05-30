@@ -49,27 +49,27 @@ gtag('config', 'G-SQ6JDBKRL7');
 <div class="container">
     <h1>Editor de Texto para WhatsApp</h1>
     <div class="options">
-        <button onclick="addFormatting('*')">
+        <button class="button" onclick="addFormatting('*')">
             <i class="fas fa-bold"></i>
             Negrito
         </button>
-        <button onclick="addFormatting('_')">
+        <button class="button" onclick="addFormatting('_')">
             <i class="fas fa-italic"></i>
             Itálico
         </button>
-        <button onclick="addFormatting('~')">
+        <button class="button" onclick="addFormatting('~')">
             <i class="fas fa-strikethrough"></i>
             Riscado
         </button>
-        <button onclick="addFormatting('```')">
+        <button class="button" onclick="addFormatting('```')">
             <i class="fa-solid fa-text-width"></i>
             Monoespaçado
         </button>
-        <button onclick="addList('ul')">
+        <button class="button" onclick="addList('ul')">
             <i class="fas fa-list-ul"></i>
             Lista não ordenada
         </button>
-        <button onclick="addList('ol')">
+        <button class="button" onclick="addList('ol')">
             <i class="fas fa-list-ol"></i>
             Lista ordenada
         </button>
@@ -79,44 +79,43 @@ gtag('config', 'G-SQ6JDBKRL7');
         <p>Para criar uma lista, coloque cada item em uma nova linha e clique no botão correspondente.</p>
     </div>
 
-    <div class="model-options">
-        <select id="modelSelector" onchange="selectModel()">
-            <option value="">Selecione um modelo</option>
-            <option value="Boas-vindas">Boas-vindas</option>
-            <option value="Ola">Olá</option>
-            <option value="Agradecimento">Agradecimento</option>
-            <option value="ConfirmacaoPedido">Confirmação de Pedido</option>
-            <option value="Promocao">Promoção</option>
-            <option value="Lembrete">Lembrete</option>
-            <option value="Despedida">Despedida</option>
-        </select>
-    </div>
+    <textarea id="inputText" placeholder="Digite seu texto aqui" oninput="updatePreview(); updateSaveButtonVisibility()"></textarea>
 
-    <textarea id="inputText" placeholder="Digite seu texto aqui" oninput="updatePreview()"></textarea>
-
-    <button onclick="copyText()" title="Copiar para a área de transferência">
+    <button class="button" onclick="copyText()" title="Copiar para a área de transferência">
         <i class="fas fa-copy"></i>
         Copiar
     </button>
-    <button onclick="openEmojiModal()" title="Adicionar emojis">
+    <button class="button" onclick="openEmojiModal()" title="Adicionar emojis">
         <i class="fas fa-smile"></i>
         Emojis
     </button>
 
-    <button onclick="eraseText()" title="Apagar texto">
+    <button class="button" onclick="eraseText()" title="Apagar texto">
         <i class="fas fa-eraser"></i>
         Apagar texto
     </button>
-    <button onclick="clearFormatting()">
+    <button class="button" onclick="clearFormatting()">
         <i class="fas fa-eraser"></i>
         Limpar formatação
     </button>
 
-
-    <div class="preview">
-        <h3>Visualização:</h3>
-        <p id="previewText"></p>
+    <h3>Visualização:</h3>
+    <div class="preview-card">
+        <div class="preview-body">
+            <p id="previewText"></p>
+        </div>
+        <div class="preview-footer">
+            <button id="saveModelButton" class="button d-none" onclick="saveModel()">
+                <i class="fas fa-save"></i>
+                Salvar modelo
+            </button>
+        </div>
     </div>
+
+    <h3>Modelos salvos:</h3>
+
+    <div id="modelList" class="model-list"></div>
+
 </div>
 
 <!-- Modal para seleção de emojis -->
@@ -128,7 +127,6 @@ gtag('config', 'G-SQ6JDBKRL7');
         <div id="emojiContainer" class="emoji-container"></div>
     </div>
 </div>
-
 
 <script src="js/script.js"></script>
 </body>
