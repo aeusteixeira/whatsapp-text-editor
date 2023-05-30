@@ -187,7 +187,8 @@ function updatePreview() {
     .replace(/\`([^`]+)\`(?![^<]*<\/code>)/g, "<code>$1</code>")
     .replace(/\n\-\s/g, "<br>- ")
     .replace(/\n\d+\.\s/g, "<br>1. ")
-    .replace(/`/g, "");
+    .replace(/`/g, "")
+    .replace(/\n/g, "<br>");
 
   previewText.innerHTML = formattedText;
 }
