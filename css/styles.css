@@ -1,66 +1,56 @@
 /* Estilos CSS */
+*, card, .btn{
+  border-radius: 0.25rem;
+}
+
 body {
   font-family: Arial, sans-serif;
+  background-color: #45a049 !important;
+  background-image: url('../img/whatsapp-wallpaper-default.jpg');
+  background-repeat: repeat;
+  background-blend-mode: multiply; /* Mistura a cor com a imagem */
 }
 
-.d-none {
-  display: none;
+.container{
+  border-radius: 0.25rem;
 }
 
-.container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
+#chat{
+  background-image: url('../img/whatsapp-wallpaper-default.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 300px;
+  height: auto;
 }
 
-h1 {
-  text-align: center;
+#chat .message{
+  background-color: #E4FFCB;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
 }
 
-textarea {
-  width: 100%;
-  height: 150px;
-  margin-bottom: 10px;
+.contact-image{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
-.button {
-  padding: 10px 20px;
+.btn-default{
   background-color: #4CAF50;
   color: #fff;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   transition: .2s;
   text-decoration: none;
 }
 
-.button:hover {
-  background-color: #45a049;
+.btn-default:hover {
+  background-color: #2d8532;
+  color: #fff;
 }
-
-.options {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 22px;
-}
-
-.options button {
-  margin-right: 10px;
-}
-
-.help-text {
-  margin-bottom: 10px;
-  font-style: italic;
-}
-
-/* Estilos para o preview */
-.preview-card {
-  border: 1px solid #ccc;
-  padding: 10px;
-}
-
-
 /* Estilos para o a listagem dos modelos */
 
 .model-list {
@@ -70,16 +60,15 @@ textarea {
 }
 
 .model-card {
-  width: calc(45% - 10px);
+  background-color: #f0f0f0;
   padding: 10px;
-  background-color: #f6f6f6;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s;
-}
-
-.model-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .model-card p {
@@ -99,43 +88,6 @@ textarea {
 .model-card .copy-button {
   background-color: #008de6;
   color: #fff;
-}
-
-/* Estilos para o modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 400px;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 /* Estilos para o input de pesquisa */
@@ -187,7 +139,6 @@ textarea {
 }
 
 
-
 @media (min-width: 320px) and (max-width: 540px) {
   .options {
     display: flex;
@@ -199,3 +150,20 @@ textarea {
     margin-top: 12px;
   }
 }
+
+@keyframes shine {
+  0% {
+      box-shadow: 0 0 10px rgba(22, 151, 65, 0.7);
+  }
+  50% {
+      box-shadow: 0 0 20px rgba(28, 230, 89, 0.7);
+  }
+  100% {
+      box-shadow: 0 0 10px rgba(78, 228, 98, 0.7);
+  }
+}
+
+.btn.btn-default.btn-highlight {
+  animation: shine 2s infinite;
+}
+
