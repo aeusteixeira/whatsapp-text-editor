@@ -52,8 +52,33 @@
     gtag('config', 'G-SQ6JDBKRL7');
 </script>
 
-<body class="bg-success">
-    <main class="container bg-light p-4 mt-5 shadow-lg">
+<body class="bg-success d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">
+                <img src="img/favicon.ico" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                Editor de Texto para WhatsApp
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#">Precisa de um site, sistema ou
+                            marketing?
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ms-2" target="_blank"
+                            href="https://matheusteixeira.com.br/contato/">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container bg-light p-4 my-5 shadow-lg flex-grow-1">
         <h1 class="text-center">Editor de Texto para WhatsApp</h1>
         <p class="text-center">Esta é uma ferramenta de edição de texto para criar mensagens formatadas para o
             WhatsApp.</p>
@@ -283,7 +308,12 @@
             </div>
         </div>
     </main>
-
+    <footer class="bg-body-tertiary text-center py-3">
+        <p>
+            Feito com <span id="heart">❤</span> por <a href="https://matheusteixeira.com.br" target="_blank">Matheus
+                Teixeira</a>
+        </p>
+    </footer>
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
